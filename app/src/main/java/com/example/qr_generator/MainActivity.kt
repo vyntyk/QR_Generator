@@ -3,6 +3,7 @@ package com.example.qr_generator
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageView
 import androidmads.library.qrgenearator.QRGContents
 import androidmads.library.qrgenearator.QRGEncoder
@@ -11,6 +12,7 @@ import com.google.zxing.WriterException
 class MainActivity : AppCompatActivity() {
     var iView: ImageView? = null
     var gButton: Button? = null
+    var eText: EditText? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
