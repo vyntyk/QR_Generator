@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
     var gButton: Button? = null
     var eText: EditText? = null
     var inputvalue: String? = null
-    var TAG = "GenerateQrCode"
+    var tag = "GenerateQrCode"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,20 +26,20 @@ class MainActivity : AppCompatActivity() {
 
         gButton?.setOnClickListener {
             inputvalue = eText!!.text.toString().trim { it <= ' ' }
-            generateQRCode(inputvalue!!.toString())
+            generateQRCode()
 
         }
     }
 
-    private fun generateQRCode(text: String) {
-        if (inputvalue!!.length > 0) {
-            var qrGenerator = QRGEncoder(inputvalue, null, QRGContents.Type.TEXT, 600)
+    private fun generateQRCode() {
+        if (inputvalue!!.isNotEmpty()) {
+            val qrGenerator = QRGEncoder(inputvalue, null, QRGContents.Type.TEXT, 600)
             try {
-                var bitmap = qrGenerator.encodeAsBitmap()
+                val bitmap = qrGenerator.encodeAsBitmap()
                 iView?.setImageBitmap(bitmap)
 
             } catch (e: WriterException) {
-                Log.v(TAG, e.toString())
+                Log.v(tag, e.toString())
             }
         } else {
             eText!!.error = "Введите текст"
