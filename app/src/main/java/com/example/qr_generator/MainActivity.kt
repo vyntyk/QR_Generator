@@ -27,7 +27,6 @@ class MainActivity : AppCompatActivity() {
         gButton?.setOnClickListener {
             inputvalue = eText!!.text.toString().trim { it <= ' ' }
             generateQRCode()
-
         }
     }
 
